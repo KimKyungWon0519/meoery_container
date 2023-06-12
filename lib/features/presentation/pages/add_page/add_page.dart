@@ -9,6 +9,10 @@ class AddPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('기억 추가'),
       ),
+      body: const Padding(
+        padding: EdgeInsets.all(10),
+        child: Placeholder(),
+      ),
     );
   }
 }
