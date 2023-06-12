@@ -10,7 +10,7 @@ class AddPage extends StatelessWidget {
         title: const Text('기억 추가'),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(10),
+        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 16),
         child: Form(
           child: TextFormField(
             style: Theme.of(context).textTheme.bodyLarge,
