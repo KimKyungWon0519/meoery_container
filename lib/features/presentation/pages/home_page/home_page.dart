@@ -16,7 +16,9 @@ class HomePage extends StatelessWidget {
         onDateChanged: (value) {},
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          // Todo: Push Add Page
+        },
         child: const Icon(Icons.add),
       ),
     );
