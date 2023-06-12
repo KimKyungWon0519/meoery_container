@@ -11,14 +11,20 @@ class AddPage extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 16),
-        child: Form(
-          child: TextFormField(
-            style: Theme.of(context).textTheme.bodyLarge,
-            decoration: const InputDecoration(
-              hintText: '제목',
-              border: InputBorder.none,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Form(
+              child: TextFormField(
+                style: Theme.of(context).textTheme.bodyLarge,
+                decoration: const InputDecoration(
+                  hintText: '제목',
+                  border: InputBorder.none,
+                ),
+              ),
             ),
-          ),
+            Text('${DateTime.now()}'),
+          ],
         ),
       ),
     );
