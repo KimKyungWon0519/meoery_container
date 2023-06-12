@@ -11,6 +11,9 @@ class AppTheme {
         foregroundColor: Colors.black,
         elevation: 0.0,
       ),
+      textTheme: const TextTheme(
+        bodyLarge: TextStyle(fontSize: 26),
+      ),
       scaffoldBackgroundColor: Colors.white,
     );
   }
