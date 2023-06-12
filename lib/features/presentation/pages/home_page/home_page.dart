@@ -7,7 +7,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('기억 창고'),
+        title: const Text('기억 창고'),
       ),
     );
   }
