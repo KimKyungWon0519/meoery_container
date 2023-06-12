@@ -12,7 +12,7 @@ class AppTheme {
         elevation: 0.0,
       ),
       textTheme: const TextTheme(
-        bodyLarge: TextStyle(fontSize: 26),
+        bodyLarge: TextStyle(fontSize: 24),
       ),
       scaffoldBackgroundColor: Colors.white,
     );
