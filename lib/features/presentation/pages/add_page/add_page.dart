@@ -39,6 +39,21 @@ class AddPage extends StatelessWidget {
           ],
         ),
       ),
+      bottomNavigationBar: BottomAppBar(
+        child: Row(
+          children: [
+            IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.photo),
+            ),
+            const Spacer(),
+            TextButton(
+              onPressed: () {},
+              child: Text('완료'),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
