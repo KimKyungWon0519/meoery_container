@@ -17,6 +17,6 @@ abstract class AppPages {
         builder: (context, state) => const AddPage(),
       ),
     ],
-    initialLocation: AppRoutes.home,
+    initialLocation: AppRoutes.add,
   );
 }

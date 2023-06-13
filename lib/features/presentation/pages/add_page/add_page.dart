@@ -23,7 +23,19 @@ class AddPage extends StatelessWidget {
                 ),
               ),
             ),
-            Text('${DateTime.now()}'),
+            Text(DateTime.now().toString().split(' ')[0]),
+            const SizedBox(height: 20),
+            Expanded(
+              child: TextField(
+                style: Theme.of(context).textTheme.bodyMedium,
+                expands: true,
+                decoration: const InputDecoration(
+                  hintText: '내용',
+                  border: InputBorder.none,
+                ),
+                maxLines: null,
+              ),
+            ),
           ],
         ),
       ),

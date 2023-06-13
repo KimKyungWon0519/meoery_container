@@ -13,6 +13,7 @@ class AppTheme {
       ),
       textTheme: const TextTheme(
         bodyLarge: TextStyle(fontSize: 24),
+        bodyMedium: TextStyle(fontSize: 18),
       ),
       scaffoldBackgroundColor: Colors.white,
     );
