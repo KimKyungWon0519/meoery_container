@@ -23,7 +23,17 @@ class AddPage extends StatelessWidget {
                 ),
               ),
             ),
-            Text(DateTime.now().toString().split(' ')[0]),
+            GestureDetector(
+              child: Text(DateTime.now().toString().split(' ')[0]),
+              onTap: () {
+                showDatePicker(
+                  context: context,
+                  initialDate: DateTime.now(),
+                  firstDate: DateTime(1900),
+                  lastDate: DateTime(2300),
+                );
+              },
+            ),
             const SizedBox(height: 20),
             Expanded(
               child: TextField(
