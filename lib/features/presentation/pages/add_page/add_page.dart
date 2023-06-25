@@ -26,7 +26,10 @@ class AddPage extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: const BottomControlBar(),
+      bottomNavigationBar: Padding(
+        padding: MediaQuery.of(context).viewInsets,
+        child: const BottomControlBar(),
+      ),
     );
   }
 }
