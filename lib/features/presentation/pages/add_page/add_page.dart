@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 
+import 'local_widgets/botto_control_bar.dart';
+import 'local_widgets/content_field.dart';
+import 'local_widgets/date_text_button.dart';
+import 'local_widgets/title_field.dart';
+
 class AddPage extends StatelessWidget {
   const AddPage({super.key});
 
@@ -9,61 +14,19 @@ class AddPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('기억 추가'),
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 16),
+      body: const Padding(
+        padding: EdgeInsets.symmetric(vertical: 10, horizontal: 16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Form(
-              child: TextFormField(
-                style: Theme.of(context).textTheme.bodyLarge,
-                decoration: const InputDecoration(
-                  hintText: '제목',
-                  border: InputBorder.none,
-                ),
-              ),
-            ),
-            GestureDetector(
-              child: Text(DateTime.now().toString().split(' ')[0]),
-              onTap: () {
-                showDatePicker(
-                  context: context,
-                  initialDate: DateTime.now(),
-                  firstDate: DateTime(1900),
-                  lastDate: DateTime(2300),
-                );
-              },
-            ),
-            const SizedBox(height: 20),
-            Expanded(
-              child: TextField(
-                style: Theme.of(context).textTheme.bodyMedium,
-                expands: true,
-                decoration: const InputDecoration(
-                  hintText: '내용',
-                  border: InputBorder.none,
-                ),
-                maxLines: null,
-              ),
-            ),
+            TitleField(),
+            DateTextButton(),
+            SizedBox(height: 20),
+            ContentField(),
           ],
         ),
       ),
-      bottomNavigationBar: BottomAppBar(
-        child: Row(
-          children: [
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.photo),
-            ),
-            const Spacer(),
-            TextButton(
-              onPressed: () {},
-              child: Text('완료'),
-            ),
-          ],
-        ),
-      ),
+      bottomNavigationBar: const BottomControlBar(),
     );
   }
 }
