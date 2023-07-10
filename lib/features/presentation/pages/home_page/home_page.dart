@@ -7,7 +7,19 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('기억 창고'),
+        title: const Text('기억 창고'),
+      ),
+      body: CalendarDatePicker(
+        initialDate: DateTime.now(),
+        firstDate: DateTime(1900),
+        lastDate: DateTime(2300),
+        onDateChanged: (value) {},
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          // Todo: Push Add Page
+        },
+        child: const Icon(Icons.add),
       ),
     );
   }
