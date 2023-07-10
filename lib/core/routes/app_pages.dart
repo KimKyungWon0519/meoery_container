@@ -22,6 +22,6 @@ abstract class AppPages {
         builder: (context, state) => const GalleryPage(),
       ),
     ],
-    initialLocation: AppRoutes.add,
+    initialLocation: AppRoutes.home,
   );
 }
