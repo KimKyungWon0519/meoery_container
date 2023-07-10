@@ -4,4 +4,5 @@ abstract class AppRoutes {
   static String home = '/home';
   static String add = '/add';
   static String gallery = '/gallery';
+  static String addGallery = '/add';
 }
