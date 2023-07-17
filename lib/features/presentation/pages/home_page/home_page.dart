@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:memory_conatiner/core/routes/app_routes.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -16,9 +18,7 @@ class HomePage extends StatelessWidget {
         onDateChanged: (value) {},
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          // Todo: Push Add Page
-        },
+        onPressed: () => context.pushNamed(AppRoutes.addMemory.name),
         child: const Icon(Icons.add),
       ),
     );
