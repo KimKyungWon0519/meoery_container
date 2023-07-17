@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:memory_conatiner/core/routes/app_routes.dart';
 import 'package:memory_conatiner/features/presentation/pages/gallery_page/local_widgets/picture_panel.dart';
 
 class GalleryPage extends StatelessWidget {
@@ -17,8 +19,8 @@ class GalleryPage extends StatelessWidget {
         itemBuilder: (context, index) => const PicturePanel(),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: Icon(Icons.add),
+        onPressed: () => context.pushNamed(AppRoutes.addGallery.name),
+        child: const Icon(Icons.add),
       ),
     );
   }

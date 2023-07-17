@@ -18,7 +18,7 @@ class HomePage extends StatelessWidget {
         onDateChanged: (value) {},
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => context.push(AppRoutes.add),
+        onPressed: () => context.pushNamed(AppRoutes.addMemory.name),
         child: const Icon(Icons.add),
       ),
     );
