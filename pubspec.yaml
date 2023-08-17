@@ -38,6 +38,7 @@ dependencies:
   go_router: ^8.0.1
   image_picker: ^1.0.1
   flutter_riverpod: ^2.3.6
+  hive: ^2.2.3
 
 dev_dependencies:
   flutter_test:
