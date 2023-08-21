@@ -14,11 +14,6 @@ class BottomControlBar extends StatelessWidget {
             onPressed: () => context.pushNamed(AppRoutes.gallery.name),
             icon: const Icon(Icons.photo),
           ),
-          const Spacer(),
-          TextButton(
-            onPressed: () {},
-            child: const Text('완료'),
-          ),
         ],
       ),
     );

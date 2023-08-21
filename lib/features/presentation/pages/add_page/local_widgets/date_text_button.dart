@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:memory_conatiner/features/presentation/presenter/add_view_model.dart';
 
-class DateTextButton extends StatefulWidget {
+class DateTextButton extends ConsumerStatefulWidget {
   const DateTextButton({super.key});
 
   @override
-  State<DateTextButton> createState() => _DateTextButtonState();
+  ConsumerState<DateTextButton> createState() => _DateTextButtonState();
 }
 
-class _DateTextButtonState extends State<DateTextButton> {
+class _DateTextButtonState extends ConsumerState<DateTextButton> {
   late DateTime _date;
 
   @override
@@ -15,6 +17,8 @@ class _DateTextButtonState extends State<DateTextButton> {
     super.initState();
 
     _date = DateTime.now();
+
+    ref.read(addViewModelProvider).date = dateTimeToString();
   }
 
   @override
@@ -37,6 +41,8 @@ class _DateTextButtonState extends State<DateTextButton> {
     setState(() {
       _date = date;
     });
+
+    ref.read(addViewModelProvider).date = dateTimeToString();
   }
 
   String dateTimeToString() {
