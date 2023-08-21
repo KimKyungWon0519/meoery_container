@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:memory_conatiner/core/routes/app_routes.dart';
-import 'package:memory_conatiner/features/presentation/pages/gallery_page/local_widgets/picture_panel.dart';
+import 'package:memory_conatiner/features/gallery/presentation/pages/gallery_page/local_widgets/picture_panel.dart';
 
 class GalleryPage extends StatelessWidget {
   const GalleryPage({super.key});
