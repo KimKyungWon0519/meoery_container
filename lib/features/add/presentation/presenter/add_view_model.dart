@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:memory_conatiner/features/domain/entity/memory_entity.dart';
+import 'package:memory_conatiner/features/add/domain/entity/memory_entity.dart';
 
 class AddViewModel {
   String title = '';

@@ -1,9 +1,9 @@
 import 'package:go_router/go_router.dart';
 import 'package:memory_conatiner/core/routes/app_routes.dart';
-import 'package:memory_conatiner/features/presentation/pages/add_gallery_page/add_gallery_page.dart';
-import 'package:memory_conatiner/features/presentation/pages/add_page/add_page.dart';
-import 'package:memory_conatiner/features/presentation/pages/gallery_page/gallery_page.dart';
-import 'package:memory_conatiner/features/presentation/pages/home_page/home_page.dart';
+import 'package:memory_conatiner/features/add/presentation/pages/add_gallery_page/add_gallery_page.dart';
+import 'package:memory_conatiner/features/add/presentation/pages/add_page/add_page.dart';
+import 'package:memory_conatiner/features/gallery/presentation/pages/gallery_page/gallery_page.dart';
+import 'package:memory_conatiner/features/home/presentation/home_page/home_page.dart';
 
 abstract class AppPages {
   const AppPages._();
