@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:memory_conatiner/features/presentation/pages/add_page/local_widgets/submit_button.dart';
 
 import 'local_widgets/botto_control_bar.dart';
 import 'local_widgets/content_field.dart';
@@ -13,6 +14,7 @@ class AddPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('기억 추가'),
+        actions: const [SubmitButton()],
       ),
       body: const Padding(
         padding: EdgeInsets.symmetric(vertical: 10, horizontal: 16),
