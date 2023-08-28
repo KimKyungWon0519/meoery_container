@@ -3,21 +3,15 @@ import 'package:hive/hive.dart';
 class HiveClient {
   late final Box _box;
 
-  Future<bool> initialize(String name) async {
-    try {
-      _box = await Hive.openBox(name);
-      return true;
-    } catch (e) {
-      return false;
-    }
+  Future<void> initialize(String name) async {
+    _box = await Hive.openBox(name);
   }
 
-  Future<bool> save(String key, Map<String, dynamic> value) async {
-    try {
-      await _box.put(key, value);
-      return true;
-    } catch (e) {
-      return false;
-    }
+  Future<void> save(String key, Map<String, dynamic> value) async {
+    await _box.put(key, value);
+  }
+
+  Future<Map<String, dynamic>> get(String key) async {
+    return await _box.get(key);
   }
 }
