@@ -3,7 +3,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:memory_conatiner/core/routes/app_pages.dart';
 import 'package:memory_conatiner/core/values/theme.dart';
 
-void main() {
+import 'dependency_injection.dart' as di;
+
+void main() async {
+  await di.init();
+
   runApp(const ProviderScope(child: MyApp()));
 }
 
