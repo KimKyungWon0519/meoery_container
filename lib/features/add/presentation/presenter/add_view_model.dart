@@ -1,13 +1,19 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:memory_conatiner/features/add/domain/entity/memory_entity.dart';
+import 'package:memory_conatiner/features/add/domain/usecase/hive_usecase.dart'
+    as HiveUseCase;
 
 class AddViewModel {
+  final HiveUseCase.Save _saveUseCase;
+
   String title = '';
   String content = '';
   String date = '';
 
-  AddViewModel() : super();
+  AddViewModel({
+    required HiveUseCase.Save saveUseCase,
+  }) : _saveUseCase = saveUseCase;
 
   void onSubmit() {
     MemoryEntity memoryEntity = MemoryEntity(
@@ -20,4 +26,4 @@ class AddViewModel {
   }
 }
 
-final addViewModelProvider = Provider<AddViewModel>((ref) => AddViewModel());
+late final addViewModelProvider;
