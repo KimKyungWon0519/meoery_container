@@ -8,7 +8,7 @@ class HiveClient {
   }
 
   Future<void> save(String key, Map<String, dynamic> value) async {
-    await _box.put(key, value);
+    _box.put(key, value);
   }
 
   Future<Map<String, dynamic>> get(String key) async {
