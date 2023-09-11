@@ -9,6 +9,6 @@ class Save {
   }) : _hiveRepository = hiveRepository;
 
   Future<void> save(String key, MemoryEntity value) async {
-    _hiveRepository.add(key, value);
+    await _hiveRepository.add(key, value);
   }
 }

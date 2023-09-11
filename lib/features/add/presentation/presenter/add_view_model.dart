@@ -14,7 +14,7 @@ class AddViewModel {
     required HiveUseCase.Save saveUseCase,
   }) : _saveUseCase = saveUseCase;
 
-  void onSubmit() {
+  Future<void> onSubmit() async {
     MemoryEntity memoryEntity = MemoryEntity(
       title: title.isEmpty ? '새로운 기억' : title,
       content: content,
