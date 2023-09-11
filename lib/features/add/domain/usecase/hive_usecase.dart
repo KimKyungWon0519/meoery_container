@@ -1,13 +1,14 @@
-import 'package:memory_conatiner/features/add/domain/repository/hive_repository.dart';
+import 'package:memory_conatiner/features/add/domain/entity/memory_entity.dart';
+import 'package:memory_conatiner/features/add/domain/repository/memory_repository.dart';
 
 class Save {
-  final HiveRepository _hiveRepository;
+  final MemoryRepository _hiveRepository;
 
   const Save({
-    required HiveRepository hiveRepository,
+    required MemoryRepository hiveRepository,
   }) : _hiveRepository = hiveRepository;
 
-  Future<void> save(String key, Map<String, dynamic> value) async {
-    _hiveRepository.save(key, value);
+  Future<void> save(String key, MemoryEntity value) async {
+    _hiveRepository.add(key, value);
   }
 }

@@ -1,5 +1,4 @@
 import 'package:flutter/foundation.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:memory_conatiner/features/add/domain/entity/memory_entity.dart';
 import 'package:memory_conatiner/features/add/domain/usecase/hive_usecase.dart'
     as HiveUseCase;
@@ -23,6 +22,8 @@ class AddViewModel {
     );
 
     debugPrint('[LOG] $memoryEntity');
+
+    _saveUseCase.save(date, memoryEntity);
   }
 }
 

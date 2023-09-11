@@ -7,11 +7,11 @@ class HiveClient {
     _box = await Hive.openBox(name);
   }
 
-  Future<void> save(String key, Map<String, dynamic> value) async {
+  Future<void> save(String key, dynamic value) async {
     _box.put(key, value);
   }
 
-  Future<Map<String, dynamic>> get(String key) async {
+  Future<dynamic> get(String key) async {
     return await _box.get(key);
   }
 }
