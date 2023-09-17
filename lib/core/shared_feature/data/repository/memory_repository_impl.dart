@@ -13,8 +13,17 @@ class MemoryRepositoryImpl implements MemoryRepository {
   Future<void> add(String date, MemoryEntity memoryEntity) async {
     List<Map<String, dynamic>> containers = await _hiveClient.get(date) ?? [];
 
-    containers.add(memoryEntity.toJson());
+    containers.add(MemoryMapper.toJson(memoryEntity));
 
     _hiveClient.save(date, containers);
+  }
+
+  @override
+  Future<List<MemoryEntity>> get(String date) async {
+    List<Map<String, dynamic>> containers = await _hiveClient.get(date) ?? [];
+
+    return containers.map((e) {
+      return MemoryMapper.fromJson(e);
+    }).toList();
   }
 }
