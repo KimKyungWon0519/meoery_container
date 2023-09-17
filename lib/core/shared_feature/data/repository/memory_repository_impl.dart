@@ -1,7 +1,7 @@
-import 'package:memory_conatiner/features/add/data/data_source/hive_client.dart';
-import 'package:memory_conatiner/features/add/data/mapper/memory_mapper.dart';
-import 'package:memory_conatiner/features/add/domain/entity/memory_entity.dart';
-import 'package:memory_conatiner/features/add/domain/repository/memory_repository.dart';
+import 'package:memory_conatiner/core/shared_feature/data/data_source/hive_client.dart';
+import 'package:memory_conatiner/core/shared_feature/data/mapper/memory_mapper.dart';
+import 'package:memory_conatiner/core/shared_feature/domain/entity/memory_entity.dart';
+import 'package:memory_conatiner/core/shared_feature/domain/repository/memory_repository.dart';
 
 class MemoryRepositoryImpl implements MemoryRepository {
   final HiveClient _hiveClient;
