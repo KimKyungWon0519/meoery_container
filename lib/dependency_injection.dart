@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hive/hive.dart';
 import 'package:memory_conatiner/core/shared_feature/data/data_source/hive_client.dart';
 import 'package:memory_conatiner/core/shared_feature/data/repository/memory_repository_impl.dart';
+import 'package:memory_conatiner/core/shared_feature/domain/entity/memory_entity.dart';
 import 'package:memory_conatiner/core/shared_feature/domain/repository/memory_repository.dart';
 import 'package:memory_conatiner/features/add/presentation/presenter/add_view_model.dart';
 import 'package:memory_conatiner/features/home/domain/usecase/memory_usecase.dart';
@@ -30,5 +31,6 @@ Future init() async {
   addViewModelProvider =
       Provider<AddViewModel>((ref) => AddViewModel(saveUseCase: saveUseCase));
   homeViewModelProvider =
-      Provider<HomeViewModel>((ref) => HomeViewModel(get: get));
+      StateNotifierProvider<HomeViewModel, List<MemoryEntity>>(
+          (ref) => HomeViewModel(get: get));
 }
