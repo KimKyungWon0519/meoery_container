@@ -10,7 +10,13 @@ class HomeViewModel extends StateNotifier<List<MemoryEntity>> {
   })  : _get = get,
         super([]);
 
-  Future<List<MemoryEntity>> getMemoryContainers(String date) async {
+  void updateMemories(String date) async {
+    List<MemoryEntity> memories = await _getMemoryContainers(date);
+
+    state = memories;
+  }
+
+  Future<List<MemoryEntity>> _getMemoryContainers(String date) async {
     return _get.getAll(date);
   }
 }
