@@ -5,6 +5,8 @@ import 'package:memory_conatiner/core/routes/app_routes.dart';
 import 'package:memory_conatiner/core/shared_feature/domain/entity/memory_entity.dart';
 import 'package:memory_conatiner/features/home/presentation/presenster/home_view_model.dart';
 
+import 'local_widgets/add_fab.dart';
+
 class HomePage extends ConsumerWidget {
   const HomePage({super.key});
 
@@ -38,18 +40,7 @@ class HomePage extends ConsumerWidget {
           ),
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => _addMemoryEvent(context, ref),
-        child: const Icon(Icons.add),
-      ),
+      floatingActionButton: const AddFAB(),
     );
-  }
-
-  void _addMemoryEvent(BuildContext context, WidgetRef ref) {
-    context.pushNamed(AppRoutes.addMemory.name).then((value) {
-      ref
-          .read<HomeViewModel>(homeViewModelProvider.notifier)
-          .updateMemories(DateTime.now().toString().split(' ')[0]);
-    });
   }
 }
