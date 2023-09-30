@@ -13,13 +13,16 @@ class MemoryRepositoryImpl implements MemoryRepository {
 
   @override
   Future<void> add(String date, MemoryEntity memoryEntity) async {
-    List<String> containers = await _hiveClient.get(date) ?? [];
+    List<MemoryEntity> containers = await get(date) ?? [];
+    int key = containers.isNotEmpty ? containers.last.key + 1 : 0;
 
-    memoryEntity.copyWith(key: containers.length);
+    containers.add(memoryEntity.copyWith(key: key));
 
-    containers.add(json.encode(MemoryMapper.toJson(memoryEntity)));
-
-    _hiveClient.save(date, containers);
+    _hiveClient.save(
+        date,
+        containers.map((e) {
+          return MemoryMapper.toJson(e);
+        }).toList());
   }
 
   @override
