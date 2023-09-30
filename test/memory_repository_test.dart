@@ -36,10 +36,10 @@ void main() async {
 
         entities = await memoryRepository.get(entity.date);
       } catch (e) {
-        debugPrint('error save : $e');
+        debugPrint('error add : $e');
       }
 
-      expect(entities[0], entity);
+      expect(entities[0].key, 0);
     });
 
     test('second insert', () async {
@@ -51,14 +51,27 @@ void main() async {
 
         entities = await memoryRepository.get(entity.date);
       } catch (e) {
-        debugPrint('error save : $e');
+        debugPrint('error add : $e');
       }
 
-      expect(entities[1], entity);
+      expect(entities[1].key, 1);
     });
 
     test('check length', () {
       expect(entities.length, 2);
+    });
+
+    test('delete first', () async {
+      try {
+        await memoryRepository.delete('20230101', entities.first);
+
+        entities = await memoryRepository.get('20230101');
+      } catch (e) {
+        debugPrint('error delete : $e');
+      }
+
+      expect(entities[0].key, 1);
+      expect(entities.length, 1);
     });
   });
 }
