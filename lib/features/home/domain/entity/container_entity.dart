@@ -6,9 +6,19 @@ class ContainerEntity extends Equatable {
   final List<MemoryEntity> memories;
 
   const ContainerEntity({
-    required this.date,
-    required this.memories,
+    this.date = '',
+    this.memories = const [],
   });
+
+  ContainerEntity copyWith({
+    String? date,
+    List<MemoryEntity>? memories,
+  }) {
+    return ContainerEntity(
+      date: date ?? this.date,
+      memories: memories ?? this.memories,
+    );
+  }
 
   @override
   List<Object?> get props => [date];
