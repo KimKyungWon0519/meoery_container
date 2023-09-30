@@ -20,7 +20,7 @@ class Delete {
     required MemoryRepository hiveRepository,
   }) : _hiveRepository = hiveRepository;
 
-  Future<void> delete(String date, int index) async {
-    await _hiveRepository.delete(date, index);
+  Future<void> delete(String date, MemoryEntity memoryEntity) async {
+    await _hiveRepository.delete(date, memoryEntity);
   }
 }

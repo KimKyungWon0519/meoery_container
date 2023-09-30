@@ -30,10 +30,10 @@ class MemoryRepositoryImpl implements MemoryRepository {
   }
 
   @override
-  Future<void> delete(String date, int index) async {
-    List<String> containers = await _hiveClient.get(date) ?? [];
+  Future<void> delete(String date, MemoryEntity memoryEntity) async {
+    List<MemoryEntity> containers = await get(date);
 
-    containers.removeAt(index);
+    containers.remove(memoryEntity);
 
     _hiveClient.save(date, containers);
   }

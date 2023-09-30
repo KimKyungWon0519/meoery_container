@@ -1,11 +1,13 @@
 import 'package:equatable/equatable.dart';
 
 class MemoryEntity extends Equatable {
+  final int key;
   final String title;
   final String content;
   final String date;
 
   const MemoryEntity({
+    this.key = -1,
     this.title = '',
     this.content = '',
     this.date = '',
@@ -24,5 +26,5 @@ class MemoryEntity extends Equatable {
   }
 
   @override
-  List<Object?> get props => [title, content, date];
+  List<Object?> get props => [key];
 }
