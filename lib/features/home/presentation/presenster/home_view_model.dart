@@ -4,10 +4,13 @@ import 'package:memory_conatiner/features/home/domain/usecase/memory_usecase.dar
 
 class HomeViewModel extends StateNotifier<List<MemoryEntity>> {
   final Get _get;
+  final Delete _delete;
 
   HomeViewModel({
     required Get get,
+    required Delete delete,
   })  : _get = get,
+        _delete = delete,
         super([]);
 
   void updateMemories(String date) async {

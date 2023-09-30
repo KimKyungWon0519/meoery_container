@@ -18,6 +18,9 @@ Future init() async {
 
   Hive.init(appDocumentsDir.path);
 
+  // TODO : Delete this code when create delete feature
+  Hive.deleteBoxFromDisk('memory_container');
+
   HiveClient hiveClient = HiveClient();
 
   await hiveClient.initialize('memory_container');
@@ -27,10 +30,11 @@ Future init() async {
   HiveUseCase.Save saveUseCase =
       HiveUseCase.Save(hiveRepository: hiveRepository);
   Get get = Get(hiveRepository: hiveRepository);
+  Delete delete = Delete(hiveRepository: hiveRepository);
 
   addViewModelProvider =
       Provider<AddViewModel>((ref) => AddViewModel(saveUseCase: saveUseCase));
   homeViewModelProvider =
       StateNotifierProvider<HomeViewModel, List<MemoryEntity>>(
-          (ref) => HomeViewModel(get: get));
+          (ref) => HomeViewModel(get: get, delete: delete));
 }

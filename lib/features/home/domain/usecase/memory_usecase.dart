@@ -12,3 +12,15 @@ class Get {
     return await _hiveRepository.get(date);
   }
 }
+
+class Delete {
+  final MemoryRepository _hiveRepository;
+
+  const Delete({
+    required MemoryRepository hiveRepository,
+  }) : _hiveRepository = hiveRepository;
+
+  Future<void> delete(String date, int index) async {
+    await _hiveRepository.delete(date, index);
+  }
+}
