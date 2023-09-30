@@ -14,11 +14,11 @@ class HomeViewModel extends StateNotifier<ContainerEntity> {
   })  : _get = get,
         _delete = delete,
         super(const ContainerEntity()) {
-    udpateDate(dateTimeToString(DateTime.now()));
+    updateDate(DateTime.now());
   }
 
-  void udpateDate(String date) {
-    state = ContainerEntity(date: date);
+  void updateDate(DateTime date) {
+    state = ContainerEntity(date: dateTimeToString(date));
 
     updateMemories();
   }
