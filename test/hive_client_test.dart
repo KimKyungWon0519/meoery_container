@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hive/hive.dart';
-import 'package:memory_conatiner/features/add/data/data_source/hive_client.dart';
+import 'package:memory_conatiner/core/shared_feature/data/data_source/hive_client.dart';
 
 void main() async {
   Hive.init(Directory.current.path);

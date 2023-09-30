@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
-import 'package:memory_conatiner/features/add/domain/entity/memory_entity.dart';
-import 'package:memory_conatiner/features/add/domain/usecase/hive_usecase.dart'
+import 'package:memory_conatiner/core/shared_feature/domain/entity/memory_entity.dart';
+import 'package:memory_conatiner/features/add/domain/usecase/memory_usecase.dart'
     as HiveUseCase;
 
 class AddViewModel {

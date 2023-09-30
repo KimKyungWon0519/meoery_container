@@ -1,5 +1,5 @@
-import 'package:memory_conatiner/features/add/domain/entity/memory_entity.dart';
-import 'package:memory_conatiner/features/add/domain/repository/memory_repository.dart';
+import 'package:memory_conatiner/core/shared_feature/domain/entity/memory_entity.dart';
+import 'package:memory_conatiner/core/shared_feature/domain/repository/memory_repository.dart';
 
 class Save {
   final MemoryRepository _hiveRepository;
