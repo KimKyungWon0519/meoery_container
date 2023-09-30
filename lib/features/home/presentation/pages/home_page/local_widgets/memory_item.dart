@@ -30,6 +30,6 @@ class MemoryItem extends ConsumerWidget {
   void _onDismissed(HomeViewModel homeViewModel) {
     homeViewModel
         .deleteMemory(memory)
-        .then((value) => homeViewModel.updateMemories(memory.date));
+        .then((value) => homeViewModel.updateMemories());
   }
 }

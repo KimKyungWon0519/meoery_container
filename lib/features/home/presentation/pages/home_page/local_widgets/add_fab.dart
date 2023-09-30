@@ -17,9 +17,7 @@ class AddFAB extends ConsumerWidget {
 
   void _addMemoryEvent(BuildContext context, WidgetRef ref) {
     context.pushNamed(AppRoutes.addMemory.name).then((value) {
-      ref
-          .read<HomeViewModel>(homeViewModelProvider.notifier)
-          .updateMemories(DateTime.now().toString().split(' ')[0]);
+      ref.read<HomeViewModel>(homeViewModelProvider.notifier).updateMemories();
     });
   }
 }

@@ -14,18 +14,20 @@ class HomeViewModel extends StateNotifier<ContainerEntity> {
         _delete = delete,
         super(const ContainerEntity());
 
-  void updateMemories(String date) async {
-    List<MemoryEntity> memories = await _getMemoryContainers(date);
+  void udpateDate(String date) {
+    state = ContainerEntity(date: date);
+
+    updateMemories();
+  }
+
+  void updateMemories() async {
+    List<MemoryEntity> memories = await _get.getAll(state.date);
 
     state = state.copyWith(memories: memories);
   }
 
-  Future<List<MemoryEntity>> _getMemoryContainers(String date) async {
-    return _get.getAll(date);
-  }
-
   Future<void> deleteMemory(MemoryEntity memory) async {
-    await _delete.delete(memory.date, memory);
+    await _delete.delete(state.date, memory);
   }
 }
 
