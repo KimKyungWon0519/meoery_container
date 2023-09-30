@@ -28,4 +28,13 @@ class MemoryRepositoryImpl implements MemoryRepository {
       return MemoryMapper.fromJson(json.decode(e));
     }).toList();
   }
+
+  @override
+  Future<void> delete(String date, int index) async {
+    List<String> containers = await _hiveClient.get(date) ?? [];
+
+    containers.removeAt(index);
+
+    _hiveClient.save(date, containers);
+  }
 }
