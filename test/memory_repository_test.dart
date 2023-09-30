@@ -28,8 +28,8 @@ void main() async {
   group('Memoery Repository add and get', () {
     List<MemoryEntity> entities = [];
     test('first insert', () async {
-      MemoryEntity entity =
-          const MemoryEntity(title: 'test', content: 'test', date: '20230101');
+      MemoryEntity entity = const MemoryEntity(
+          title: 'test1', content: 'test1', date: '20230101');
 
       try {
         await memoryRepository.add(entity.date, entity);
@@ -43,8 +43,8 @@ void main() async {
     });
 
     test('second insert', () async {
-      MemoryEntity entity =
-          const MemoryEntity(title: 'test', content: 'test', date: '20230101');
+      MemoryEntity entity = const MemoryEntity(
+          title: 'test2', content: 'test2', date: '20230101');
 
       try {
         await memoryRepository.add(entity.date, entity);
