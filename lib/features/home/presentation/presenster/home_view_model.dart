@@ -1,5 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:memory_conatiner/core/shared_feature/domain/entity/memory_entity.dart';
+import 'package:memory_conatiner/core/utility/converter.dart';
 import 'package:memory_conatiner/features/home/domain/entity/container_entity.dart';
 import 'package:memory_conatiner/features/home/domain/usecase/memory_usecase.dart';
 
@@ -12,7 +13,9 @@ class HomeViewModel extends StateNotifier<ContainerEntity> {
     required Delete delete,
   })  : _get = get,
         _delete = delete,
-        super(const ContainerEntity());
+        super(const ContainerEntity()) {
+    udpateDate(dateTimeToString(DateTime.now()));
+  }
 
   void udpateDate(String date) {
     state = ContainerEntity(date: date);
