@@ -18,9 +18,6 @@ Future init() async {
 
   Hive.init(appDocumentsDir.path);
 
-  // TODO : Delete this code when create delete feature
-  Hive.deleteBoxFromDisk('memory_container');
-
   HiveClient hiveClient = HiveClient();
 
   await hiveClient.initialize('memory_container');
