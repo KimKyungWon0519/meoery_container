@@ -13,16 +13,12 @@ class MemoryRepositoryImpl implements MemoryRepository {
 
   @override
   Future<void> add(String date, MemoryEntity memoryEntity) async {
-    List<MemoryEntity> containers = await get(date) ?? [];
+    List<MemoryEntity> containers = await get(date);
     int key = containers.isNotEmpty ? containers.last.key + 1 : 0;
 
     containers.add(memoryEntity.copyWith(key: key));
 
-    _hiveClient.save(
-        date,
-        containers.map((e) {
-          return MemoryMapper.toJson(e);
-        }).toList());
+    await save(date, containers);
   }
 
   @override
@@ -40,6 +36,14 @@ class MemoryRepositoryImpl implements MemoryRepository {
 
     containers.remove(memoryEntity);
 
-    _hiveClient.save(date, containers);
+    await save(date, containers);
+  }
+
+  Future<void> save(String date, List<MemoryEntity> containers) async {
+    await _hiveClient.save(
+        date,
+        containers.map((e) {
+          return json.encode(MemoryMapper.toJson(e));
+        }).toList());
   }
 }
