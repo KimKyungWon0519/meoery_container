@@ -5,11 +5,11 @@ import 'package:memory_conatiner/features/home/presentation/pages/home_page/loca
 
 import 'local_widgets/add_fab.dart';
 
-class HomePage extends ConsumerWidget {
+class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('기억 창고'),

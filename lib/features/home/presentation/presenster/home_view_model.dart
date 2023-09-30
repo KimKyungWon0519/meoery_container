@@ -22,6 +22,10 @@ class HomeViewModel extends StateNotifier<List<MemoryEntity>> {
   Future<List<MemoryEntity>> _getMemoryContainers(String date) async {
     return _get.getAll(date);
   }
+
+  Future<void> deleteMemory(MemoryEntity memory) async {
+    await _delete.delete(memory.date, memory);
+  }
 }
 
 late final homeViewModelProvider;
