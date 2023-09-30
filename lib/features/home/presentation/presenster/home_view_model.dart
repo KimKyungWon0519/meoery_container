@@ -1,8 +1,9 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:memory_conatiner/core/shared_feature/domain/entity/memory_entity.dart';
+import 'package:memory_conatiner/features/home/domain/entity/container_entity.dart';
 import 'package:memory_conatiner/features/home/domain/usecase/memory_usecase.dart';
 
-class HomeViewModel extends StateNotifier<List<MemoryEntity>> {
+class HomeViewModel extends StateNotifier<ContainerEntity> {
   final Get _get;
   final Delete _delete;
 
@@ -11,12 +12,12 @@ class HomeViewModel extends StateNotifier<List<MemoryEntity>> {
     required Delete delete,
   })  : _get = get,
         _delete = delete,
-        super([]);
+        super(const ContainerEntity());
 
   void updateMemories(String date) async {
     List<MemoryEntity> memories = await _getMemoryContainers(date);
 
-    state = memories;
+    state = state.copyWith(memories: memories);
   }
 
   Future<List<MemoryEntity>> _getMemoryContainers(String date) async {
