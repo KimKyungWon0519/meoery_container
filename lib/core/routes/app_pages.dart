@@ -4,6 +4,7 @@ import 'package:memory_conatiner/features/add/presentation/pages/add_gallery_pag
 import 'package:memory_conatiner/features/add/presentation/pages/add_page/add_page.dart';
 import 'package:memory_conatiner/features/gallery/presentation/pages/gallery_page/gallery_page.dart';
 import 'package:memory_conatiner/features/home/presentation/pages/home_page/home_page.dart';
+import 'package:memory_conatiner/features/view/presentation/pages/view_page/view_page.dart';
 
 abstract class AppPages {
   const AppPages._();
@@ -31,6 +32,11 @@ abstract class AppPages {
             builder: ((context, state) => const AddGalleryPage()),
           )
         ],
+      ),
+      GoRoute(
+        name: AppRoutes.view.name,
+        path: AppRoutes.view.path,
+        builder: (context, state) => const ViewPage(),
       ),
     ],
     initialLocation: AppRoutes.home.path,

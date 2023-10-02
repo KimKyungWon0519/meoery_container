@@ -17,6 +17,10 @@ abstract class AppRoutes {
     name: 'add_gallery',
     path: 'add',
   );
+  static PathModel view = const PathModel(
+    name: 'view',
+    path: '/view',
+  );
 }
 
 class PathModel {
