@@ -1,5 +1,7 @@
+import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:memory_conatiner/core/routes/app_routes.dart';
+import 'package:memory_conatiner/core/shared_feature/domain/entity/memory_entity.dart';
 import 'package:memory_conatiner/features/add/presentation/pages/add_gallery_page/add_gallery_page.dart';
 import 'package:memory_conatiner/features/add/presentation/pages/add_page/add_page.dart';
 import 'package:memory_conatiner/features/gallery/presentation/pages/gallery_page/gallery_page.dart';
@@ -36,7 +38,11 @@ abstract class AppPages {
       GoRoute(
         name: AppRoutes.view.name,
         path: AppRoutes.view.path,
-        builder: (context, state) => const ViewPage(),
+        builder: (context, state) {
+          MemoryEntity memoryEntity = state.extra as MemoryEntity;
+
+          return ViewPage(memoryEntity: memoryEntity);
+        },
       ),
     ],
     initialLocation: AppRoutes.home.path,
