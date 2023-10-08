@@ -33,7 +33,8 @@ Future init() async {
   addViewModelProvider =
       Provider<AddViewModel>((ref) => AddViewModel(saveUseCase: saveUseCase));
   addGalleryViewModeProvider =
-      Provider<AddGalleryViewModel>((ref) => AddGalleryViewModel());
+      StateNotifierProvider<AddGalleryViewModel, File?>(
+          (ref) => AddGalleryViewModel());
   homeViewModelProvider = StateNotifierProvider<HomeViewModel, ContainerEntity>(
       (ref) => HomeViewModel(get: get, delete: delete));
 }
