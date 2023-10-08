@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:memory_conatiner/features/add/presentation/pages/add_page/local_widgets/submit_button.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
+import 'package:memory_conatiner/features/add/presentation/presenter/add_view_model.dart';
+import 'package:memory_conatiner/features/add/presentation/widgets/submit_button.dart';
 
 import 'local_widgets/botto_control_bar.dart';
 import 'local_widgets/content_field.dart';
@@ -14,7 +17,13 @@ class AddPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('기억 추가'),
-        actions: const [SubmitButton()],
+        actions: [
+          Consumer(
+            builder: (context, ref, child) => SubmitButton(
+              onPressed: () => _onPressed(context, ref),
+            ),
+          )
+        ],
       ),
       body: const Padding(
         padding: EdgeInsets.symmetric(vertical: 10, horizontal: 16),
@@ -33,5 +42,11 @@ class AddPage extends StatelessWidget {
         child: const BottomControlBar(),
       ),
     );
+  }
+
+  void _onPressed(BuildContext context, WidgetRef ref) {
+    ref.read<AddViewModel>(addViewModelProvider).onSubmit().then(
+          (value) => context.pop(),
+        );
   }
 }
