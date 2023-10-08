@@ -5,6 +5,7 @@ import 'package:hive/hive.dart';
 import 'package:memory_conatiner/core/shared_feature/data/data_source/hive_client.dart';
 import 'package:memory_conatiner/core/shared_feature/data/repository/memory_repository_impl.dart';
 import 'package:memory_conatiner/core/shared_feature/domain/repository/memory_repository.dart';
+import 'package:memory_conatiner/features/add/presentation/presenter/add_gallery_view_model.dart';
 import 'package:memory_conatiner/features/add/presentation/presenter/add_view_model.dart';
 import 'package:memory_conatiner/features/home/domain/entity/container_entity.dart';
 import 'package:memory_conatiner/features/home/domain/usecase/memory_usecase.dart';
@@ -31,6 +32,8 @@ Future init() async {
 
   addViewModelProvider =
       Provider<AddViewModel>((ref) => AddViewModel(saveUseCase: saveUseCase));
+  addGalleryViewModeProvider =
+      Provider<AddGalleryViewModel>((ref) => AddGalleryViewModel());
   homeViewModelProvider = StateNotifierProvider<HomeViewModel, ContainerEntity>(
       (ref) => HomeViewModel(get: get, delete: delete));
 }
