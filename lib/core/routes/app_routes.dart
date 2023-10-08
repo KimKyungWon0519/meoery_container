@@ -1,27 +1,31 @@
 abstract class AppRoutes {
   const AppRoutes._();
 
-  static pathModel home = const pathModel(
+  static PathModel home = const PathModel(
     name: 'home',
     path: '/home',
   );
-  static pathModel addMemory = const pathModel(
+  static PathModel addMemory = const PathModel(
     name: 'add_memory',
     path: '/add_memory',
   );
-  static pathModel gallery = const pathModel(
+  static PathModel gallery = const PathModel(
     name: 'gallery',
     path: '/gallery',
   );
-  static pathModel addGallery = const pathModel(
+  static PathModel addGallery = const PathModel(
     name: 'add_gallery',
     path: 'add',
   );
+  static PathModel view = const PathModel(
+    name: 'view',
+    path: '/view',
+  );
 }
 
-class pathModel {
+class PathModel {
   final String name;
   final String path;
 
-  const pathModel({required this.name, required this.path});
+  const PathModel({required this.name, required this.path});
 }
