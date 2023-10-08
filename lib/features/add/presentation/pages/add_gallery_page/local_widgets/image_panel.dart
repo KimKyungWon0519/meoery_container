@@ -1,55 +1,53 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:memory_conatiner/features/add/presentation/presenter/add_gallery_view_model.dart';
 
-class ImagePanel extends StatefulWidget {
+class ImagePanel extends StatelessWidget {
   const ImagePanel({super.key});
-
-  @override
-  State<ImagePanel> createState() => _ImagePanelState();
-}
-
-class _ImagePanelState extends State<ImagePanel> {
-  File? file;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      child: Container(
-        color: file == null ? Colors.grey[400] : Colors.white,
-        height: (MediaQuery.of(context).size.height - kToolbarHeight) / 2,
-        width: MediaQuery.of(context).size.width - 20,
-        child: file == null
-            ? const Icon(
-                Icons.camera_alt_outlined,
-                color: Colors.black,
-                size: 30,
-              )
-            : Image.file(file!),
-      ),
-      onTap: () async {
-        String path = await showModalBottomSheet(
-              backgroundColor: Colors.transparent,
-              context: context,
-              builder: (context) => const _TypeSelectionBottomSheet(),
-            ) ??
-            '';
+      child: Consumer(
+        builder: (context, ref, child) {
+          File? file = ref.watch(addGalleryViewModeProvider);
 
-        setState(() {
-          file = File(path);
-        });
-      },
+          return Container(
+            color: file == null ? Colors.grey[400] : Colors.white,
+            height: (MediaQuery.of(context).size.height - kToolbarHeight) / 2,
+            width: MediaQuery.of(context).size.width - 20,
+            child: file == null
+                ? const Icon(
+                    Icons.camera_alt_outlined,
+                    color: Colors.black,
+                    size: 30,
+                  )
+                : Image.file(file),
+          );
+        },
+      ),
+      onTap: () => _onTap(context),
+    );
+  }
+
+  void _onTap(BuildContext context) {
+    showModalBottomSheet(
+      backgroundColor: Colors.transparent,
+      context: context,
+      builder: (context) => const _TypeSelectionBottomSheet(),
     );
   }
 }
 
-class _TypeSelectionBottomSheet extends StatelessWidget {
+class _TypeSelectionBottomSheet extends ConsumerWidget {
   const _TypeSelectionBottomSheet();
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Container(
       decoration: const BoxDecoration(
         color: Colors.white,
@@ -67,14 +65,7 @@ class _TypeSelectionBottomSheet extends StatelessWidget {
           ),
           ListTile(
             title: const Text('사진'),
-            onTap: () async {
-              XFile? file =
-                  await ImagePicker().pickImage(source: ImageSource.gallery);
-
-              if (file != null) {
-                context.pop(file.path);
-              }
-            },
+            onTap: () => _imageOnTap(context, ref),
           ),
           ListTile(
             title: Text('영상'),
@@ -85,5 +76,13 @@ class _TypeSelectionBottomSheet extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  void _imageOnTap(BuildContext context, WidgetRef ref) async {
+    await ref
+        .read<AddGalleryViewModel>(addGalleryViewModeProvider.notifier)
+        .selectImage();
+
+    if (context.mounted) context.pop();
   }
 }
