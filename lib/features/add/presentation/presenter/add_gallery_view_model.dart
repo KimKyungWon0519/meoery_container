@@ -5,6 +5,7 @@ import 'package:image_picker/image_picker.dart';
 
 class AddGalleryViewModel extends StateNotifier<File?> {
   final ImagePicker _imagePicker = ImagePicker();
+  String content = '';
 
   AddGalleryViewModel() : super(null);
 
