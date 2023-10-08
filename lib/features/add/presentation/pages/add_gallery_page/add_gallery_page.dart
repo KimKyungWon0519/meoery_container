@@ -17,7 +17,9 @@ class AddGalleryPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: const Text('갤러리 추가'),
+      ),
       body: ScrollConfiguration(
         behavior: NoBehavior(),
         child: SingleChildScrollView(
