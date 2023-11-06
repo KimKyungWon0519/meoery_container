@@ -1,6 +1,8 @@
 import 'dart:io';
 
-class GalleryEntity {
+import 'package:equatable/equatable.dart';
+
+class GalleryEntity extends Equatable {
   final String content;
   final File file;
 
@@ -15,4 +17,10 @@ class GalleryEntity {
       file: file ?? this.file,
     );
   }
+
+  @override
+  List<Object?> get props => [
+        content,
+        file,
+      ];
 }
