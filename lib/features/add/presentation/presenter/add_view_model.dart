@@ -1,4 +1,5 @@
 import 'package:flutter/foundation.dart';
+import 'package:memory_conatiner/core/shared_feature/domain/entity/gallery_entity.dart';
 import 'package:memory_conatiner/core/shared_feature/domain/entity/memory_entity.dart';
 import 'package:memory_conatiner/features/add/domain/usecase/memory_usecase.dart'
     as HiveUseCase;
@@ -9,6 +10,7 @@ class AddViewModel {
   String title = '';
   String content = '';
   String date = '';
+  List<GalleryEntity> galleries = [];
 
   AddViewModel({
     required HiveUseCase.Save saveUseCase,
