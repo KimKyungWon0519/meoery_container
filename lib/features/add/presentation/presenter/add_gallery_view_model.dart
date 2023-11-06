@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:memory_conatiner/features/add/domain/entity/gallery_entity.dart';
 
 class AddGalleryViewModel extends StateNotifier<File?> {
   final ImagePicker _imagePicker = ImagePicker();
@@ -10,7 +11,6 @@ class AddGalleryViewModel extends StateNotifier<File?> {
   AddGalleryViewModel() : super(null);
 
   bool get isSelectedFileEmpty => state == null;
-  File get selectedFile => state!;
 
   Future<void> selectImage() async {
     XFile? file = await _imagePicker.pickImage(source: ImageSource.gallery);
@@ -18,6 +18,10 @@ class AddGalleryViewModel extends StateNotifier<File?> {
     if (file != null) {
       state = File(file.path);
     }
+  }
+
+  GalleryEntity createGalleryEntity() {
+    return GalleryEntity(content: content, file: state!);
   }
 }
 
