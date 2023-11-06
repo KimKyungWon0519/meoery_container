@@ -9,6 +9,8 @@ class AddGalleryViewModel extends StateNotifier<File?> {
 
   AddGalleryViewModel() : super(null);
 
+  bool get isSelectedFileEmpty => state == null;
+
   Future<void> selectImage() async {
     XFile? file = await _imagePicker.pickImage(source: ImageSource.gallery);
 

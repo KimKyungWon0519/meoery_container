@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'local_widgets/apply_button.dart';
 import 'local_widgets/comment_field.dart';
 import 'local_widgets/image_panel.dart';
 
@@ -19,6 +20,7 @@ class AddGalleryPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('갤러리 추가'),
+        actions: const [ApplyButton()],
       ),
       body: ScrollConfiguration(
         behavior: NoBehavior(),
