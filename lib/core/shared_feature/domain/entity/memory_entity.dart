@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:memory_conatiner/features/add/domain/entity/gallery_entity.dart';
+import 'package:memory_conatiner/core/shared_feature/domain/entity/gallery_entity.dart';
 
 class MemoryEntity extends Equatable {
   final int key;
