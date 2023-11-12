@@ -21,7 +21,7 @@ class ApplyButton extends ConsumerWidget {
       return;
     }
 
-    context.pop(addGalleryViewModel.createGalleryEntity());
+    context.pop(ref.read(addGalleryViewModeProvider));
   }
 
   void _showEmptyDialog(BuildContext context) {

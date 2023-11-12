@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hive/hive.dart';
 import 'package:memory_conatiner/core/shared_feature/data/data_source/hive_client.dart';
 import 'package:memory_conatiner/core/shared_feature/data/repository/memory_repository_impl.dart';
+import 'package:memory_conatiner/core/shared_feature/domain/entity/gallery_entity.dart';
 import 'package:memory_conatiner/core/shared_feature/domain/repository/memory_repository.dart';
 import 'package:memory_conatiner/features/add/presentation/presenter/add_gallery_view_model.dart';
 import 'package:memory_conatiner/features/add/presentation/presenter/add_view_model.dart';
@@ -33,7 +34,7 @@ Future init() async {
   addViewModelProvider =
       Provider<AddViewModel>((ref) => AddViewModel(saveUseCase: saveUseCase));
   addGalleryViewModeProvider =
-      StateNotifierProvider<AddGalleryViewModel, File?>(
+      StateNotifierProvider<AddGalleryViewModel, GalleryEntity>(
           (ref) => AddGalleryViewModel());
   homeViewModelProvider = StateNotifierProvider<HomeViewModel, ContainerEntity>(
       (ref) => HomeViewModel(get: get, delete: delete));

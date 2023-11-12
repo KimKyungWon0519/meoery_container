@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:memory_conatiner/core/shared_feature/domain/entity/gallery_entity.dart';
 import 'package:memory_conatiner/features/add/presentation/presenter/add_gallery_view_model.dart';
 
 class ImagePanel extends StatelessWidget {
@@ -14,19 +15,19 @@ class ImagePanel extends StatelessWidget {
     return GestureDetector(
       child: Consumer(
         builder: (context, ref, child) {
-          File? file = ref.watch(addGalleryViewModeProvider);
+          GalleryEntity state = ref.watch(addGalleryViewModeProvider);
 
           return Container(
-            color: file == null ? Colors.grey[400] : Colors.white,
+            color: state.isFileEmpty ? Colors.grey[400] : Colors.white,
             height: (MediaQuery.of(context).size.height - kToolbarHeight) / 2,
             width: MediaQuery.of(context).size.width - 20,
-            child: file == null
+            child: state.isFileEmpty
                 ? const Icon(
                     Icons.camera_alt_outlined,
                     color: Colors.black,
                     size: 30,
                   )
-                : Image.file(file),
+                : Image.file(state.file),
           );
         },
       ),

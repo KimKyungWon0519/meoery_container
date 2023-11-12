@@ -11,12 +11,21 @@ class GalleryEntity extends Equatable {
     required this.file,
   });
 
+  factory GalleryEntity.empty() {
+    return GalleryEntity(
+      content: '',
+      file: File(''),
+    );
+  }
+
   GalleryEntity copyWith({String? content, File? file}) {
     return GalleryEntity(
       content: content ?? this.content,
       file: file ?? this.file,
     );
   }
+
+  bool get isFileEmpty => file.path.isEmpty;
 
   @override
   List<Object?> get props => [
